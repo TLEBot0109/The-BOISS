@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import pygame
-from player1 import Player
-from player2 import Player2
+from player import Player
 from bullet import Bullet
 import sys
 
@@ -51,26 +50,27 @@ def check(bullet, player):
 
 #def final_screen() :
 def main():
-    run = True
+    gameRunning = True
     pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_CROSSHAIR)
     bullets_p1 = []
     bullets_p2 = []
     p_1 = Player(50, 50, 50, 50, (0, 255, 0),200,100)
-    p_2 = Player2(450, 450, 50, 50, (0, 0, 255),200,100)
+    p_2 = Player(450, 450, 50, 50, (0, 0, 255),200,100)
     clock = pygame.time.Clock()
     pre_time1=pygame.time.get_ticks()
     pre_time2=pygame.time.get_ticks()
     game_state="start_menu"
     draw_start_menu()
     end = False
-    while run == True:
+
+    while gameRunning:
         clock.tick(60)
         mouse_button = pygame.mouse.get_pressed(num_buttons = 3)
         key = pygame.key.get_pressed()
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                run = False
+                gameRunning = False
                 pygame.quit()
 
         if game_state == "start_menu":
@@ -87,11 +87,11 @@ def main():
         if end == True:
             keys = pygame.key.get_pressed()
             if keys[pygame.K_r]:
-                run = True
+                gameRunning = True
                 bullets_p1 = []
                 bullets_p2 = []
                 p_1 = Player(50, 50, 50, 50, (0, 255, 0),200,100)
-                p_2 = Player2(450, 450, 50, 50, (0, 0, 255),200,100)
+                p_2 = Player(450, 450, 50, 50, (0, 0, 255),200,100)
                 pre_time1=pygame.time.get_ticks()
                 pre_time2=pygame.time.get_ticks()
                 game_state="start_menu"

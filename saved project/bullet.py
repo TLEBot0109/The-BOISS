@@ -1,7 +1,6 @@
 import pygame
 import math
-from player1 import Player
-from player2 import Player2
+from player import Player
 
 class Bullet:
     def __init__(self, x, y, damage):
