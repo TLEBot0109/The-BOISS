@@ -22,8 +22,8 @@ def draw_p2_win():
 def draw_start_menu():
     win.fill((0, 0, 0))
     font = pygame.font.SysFont('arial',40)
-    title = font.render('My Game', True, (255, 255, 255))
-    start_button = font.render('Start', True, (255, 255, 255))
+    title = font.render('Re:tard', True, (255, 255, 255))
+    start_button = font.render('press space to start', True, (255, 255, 255))
     win.blit(title, (width/2 - title.get_width()/2, 
                      height/2 - title.get_height()/2-30))
     win.blit(start_button, (width/2 - start_button.get_width()/2, 
