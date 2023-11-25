@@ -1,5 +1,7 @@
 import pygame
 import math
+from player1 import Player
+from player2 import Player2
 
 class Bullet:
     def __init__(self, x, y, damage):
@@ -14,10 +16,9 @@ class Bullet:
         else:
             self.dir = (self.dir[0]/length, self.dir[1]/length)
         self.angle = math.degrees(math.atan2(-self.dir[1], self.dir[0]))
-
-
+    
     def update(self, array):  
-        self.pos = (self.pos[0]+self.dir[0]*self.speed, 
+        self.pos = (self.pos[0]+self.dir[0]*self.speed,
                     self.pos[1]+self.dir[1]*self.speed)
         if self.pos[0] > 500 or self.pos[0] < 0 or self.pos[1] > 500 or self.pos[1] < 0:
             array.remove(self)
@@ -28,3 +29,4 @@ class Bullet:
         self.bullet = pygame.transform.rotate(self.bullet, self.angle)
         bullet_rect = self.bullet.get_rect(center = self.pos)
         surf.blit(self.bullet, bullet_rect)  
+
