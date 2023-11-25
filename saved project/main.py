@@ -9,12 +9,12 @@ width = int(500)
 height = int(500)
 win = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Retard game") 
-BG1 = pygame.transform.scale(pygame.image.load("player1_win.jpg"),(width, height))
+BG1 = pygame.transform.scale(pygame.image.load("assets/win_p1.jpg"),(width, height))
 def draw_p1_win():
     win.blit(BG1,(0,0))
     pygame.display.update()
 
-BG2 = pygame.transform.scale(pygame.image.load("player2_win.jpg"),(width, height))
+BG2 = pygame.transform.scale(pygame.image.load("assets/win_p2.jpg"),(width, height))
 def draw_p2_win():
     win.blit(BG2,(0,0))
     pygame.display.update()
