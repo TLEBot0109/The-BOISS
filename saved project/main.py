@@ -79,8 +79,11 @@ def main():
                 game_state = "game"
             else:
                 continue
+
         if key[pygame.K_ESCAPE]:
             pygame.quit() 
+            exit()
+
         if end == True:
             keys = pygame.key.get_pressed()
             if keys[pygame.K_r]:
@@ -137,4 +140,5 @@ def main():
                 draw_p1_win()
             draw_game_over_screen()
 
-main()
+if __name__ == "__main__":
+    main()
