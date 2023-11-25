@@ -2,13 +2,13 @@ import pygame
 
 
 class Player():
-    def __init__(self, x, y, wi, he, color, health, delay, controls):
-        self.x = x
-        self.y = y
-        self.wi = wi
-        self.he = he
+    def __init__(self, dimensions, color, health, delay, controls):
+        self.x = dimensions[0]
+        self.y = dimensions[1]
+        self.wi = dimensions[2]
+        self.he = dimensions[3]
         self.color = color
-        self.rec = (x, y, wi, he)
+        self.rec = dimensions
         self.vel = 3
         self.health = health
         self.max_health = health
