@@ -54,8 +54,8 @@ def main():
     pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_CROSSHAIR)
     bullets_p1 = []
     bullets_p2 = []
-    p_1 = Player(50, 50, 50, 50, (0, 255, 0),200,100)
-    p_2 = Player(450, 450, 50, 50, (0, 0, 255),200,100)
+    p_1 = Player(50, 50, 50, 50, (0, 255, 0),200,100, (pygame.K_UP, pygame.K_DOWN, pygame.K_LEFT, pygame.K_RIGHT))
+    p_2 = Player(450, 450, 50, 50, (0, 0, 255),200,100, (pygame.K_w, pygame.K_s, pygame.K_a, pygame.K_d))
     clock = pygame.time.Clock()
     pre_time1=pygame.time.get_ticks()
     pre_time2=pygame.time.get_ticks()
@@ -90,8 +90,8 @@ def main():
                 gameRunning = True
                 bullets_p1 = []
                 bullets_p2 = []
-                p_1 = Player(50, 50, 50, 50, (0, 255, 0),200,100)
-                p_2 = Player(450, 450, 50, 50, (0, 0, 255),200,100)
+                p_1 = Player(50, 50, 50, 50, (0, 255, 0),200,100, (pygame.K_UP, pygame.K_DOWN, pygame.K_LEFT, pygame.K_RIGHT))
+                p_2 = Player(450, 450, 50, 50, (0, 0, 255),200,100, (pygame.K_w, pygame.K_s, pygame.K_a, pygame.K_d))
                 pre_time1=pygame.time.get_ticks()
                 pre_time2=pygame.time.get_ticks()
                 game_state="start_menu"
