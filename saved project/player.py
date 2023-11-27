@@ -53,43 +53,44 @@ class Player(pygame.sprite.Sprite):
         moving_sprites.remove(self)
     
     def Update(self):      
-        self.rec = (self.x - self.wi/2, self.y - self.he/2, self.wi, self.he)
-        
+        #self.rec = (self.x - self.wi/2, self.y - self.he/2, self.wi, self.he)
+        self.rec = (self.x , self.y , self.wi, self.he)
         self.rect = self.image.get_rect()
-        self.rect.topleft = [self.rec[0],self.rec[1]]
+        self.rect.topleft = [self.rec[0]-30,self.rec[1]-30]
     def move(self): 
         keys = pygame.key.get_pressed()
         change_image = False
+        max_screen=400
         if keys[self.controls[2]]:
             self.x -= self.vel
             if self.x < 0:
                 self.x = 0
-            elif self.x > 500:
-                self.x = 500
+            elif self.x > max_screen:
+                self.x = max_screen
             change_image = True
 
         if keys[self.controls[3]]:
             self.x += self.vel
             if self.x < 0:
                 self.x = 0
-            elif self.x > 500:
-                self.x = 500
+            elif self.x > max_screen:
+                self.x = max_screen
             change_image = True
 
         if keys[self.controls[0]]:
             self.y -= self.vel
             if self.y < 0:
                 self.y = 0
-            elif self.y > 500:
-                self.y = 500
+            elif self.y > max_screen:
+                self.y = max_screen
             change_image = True
 
         if keys[self.controls[1]]:
             self.y += self.vel
             if self.y < 0:
                 self.y = 0
-            elif self.y > 500:
-                self.y = 500
+            elif self.y > max_screen:
+                self.y = max_screen
             change_image = True
         
         if change_image == True:
