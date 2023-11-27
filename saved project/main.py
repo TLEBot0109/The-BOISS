@@ -1,7 +1,6 @@
 import pygame
 from player import Player
 from bullet import Bullet
-import sys
 
 pygame.init()
 width = int(500)
@@ -54,12 +53,13 @@ def main():
     pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_CROSSHAIR)
     bullets_p1 = []
     bullets_p2 = []
-    p_1 = Player((50, 50, 50, 50), (0, 255, 0),200,100, (pygame.K_UP, pygame.K_DOWN, pygame.K_LEFT, pygame.K_RIGHT))
-    p_2 = Player((450, 450, 50, 50), (0, 0, 255),200,100, (pygame.K_w, pygame.K_s, pygame.K_a, pygame.K_d))
     clock = pygame.time.Clock()
     pre_time1=pygame.time.get_ticks()
-    pre_time1_image=pygame.time.get_ticks()
+    pre_time1_moving=pygame.time.get_ticks()
     pre_time2=pygame.time.get_ticks()
+    pre_time2_moving=pygame.time.get_ticks()
+    p_1 = Player((50, 50, 50, 50), (0, 255, 0),200,100, (pygame.K_UP, pygame.K_DOWN, pygame.K_LEFT, pygame.K_RIGHT),pre_time1_moving)
+    p_2 = Player((450, 450, 50, 50), (0, 0, 255),200,100, (pygame.K_w, pygame.K_s, pygame.K_a, pygame.K_d),pre_time2_moving)
     game_state="start_menu"
     draw_start_menu()
     end = False
@@ -91,20 +91,14 @@ def main():
                 run = True
                 bullets_p1 = []
                 bullets_p2 = []
-                p_1 = Player((50, 50, 50, 50), (0, 255, 0),200,100, (pygame.K_UP, pygame.K_DOWN, pygame.K_LEFT, pygame.K_RIGHT))
-                p_2 = Player((450, 450, 50, 50), (0, 0, 255),200,100, (pygame.K_w, pygame.K_s, pygame.K_a, pygame.K_d))
+                p_1 = Player((50, 50, 50, 50), (0, 255, 0),200,100, (pygame.K_UP, pygame.K_DOWN, pygame.K_LEFT, pygame.K_RIGHT),pre_time1_moving)
+                p_2 = Player((450, 450, 50, 50), (0, 0, 255),200,100, (pygame.K_w, pygame.K_s, pygame.K_a, pygame.K_d),pre_time2_moving)
                 pre_time1=pygame.time.get_ticks()
                 pre_time2=pygame.time.get_ticks()
                 game_state="start_menu"
                 draw_start_menu()
                 end = False
             continue
-                
-        current_time_image=pygame.time.get_ticks()
-        if current_time_image-pre_time1_image>200:
-            Player.update_image(p_1)
-            Player.update_image(p_2)
-            pre_time1_image=current_time_image
 
         Win(win, p_1, p_2) 
         if mouse_button[0]:
@@ -144,10 +138,10 @@ def main():
             end = True
             p_1.delete_from_spirte()
             p_2.delete_from_spirte()
-            if(p_1.health<=0):
-                draw_p2_win()
-            else:
+            if(p_2.health<=0):
                 draw_p1_win()
+            else:
+                draw_p2_win()
             draw_game_over_screen()
 
 main()
