@@ -1,5 +1,6 @@
 import pygame
-
+import os 
+dir_path = os.path.dirname(os.path.realpath(__file__)) + '/'
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, dimensions, color, health, delay, controls, 
@@ -24,22 +25,22 @@ class Player(pygame.sprite.Sprite):
         
         
         self.sprites=[[],[]]
-        self.sprites[0].append(pygame.image.load('knight_move_right1.png'))
-        self.sprites[0].append(pygame.image.load('knight_move_right2.png'))
-        self.sprites[0].append(pygame.image.load('knight_move_right3.png'))
-        self.sprites[0].append(pygame.image.load('knight_move_right4.png'))
-        self.sprites[0].append(pygame.image.load('knight_move_right5.png'))
-        self.sprites[0].append(pygame.image.load('knight_move_right6.png'))
-        self.sprites[0].append(pygame.image.load('knight_move_right7.png'))
-        self.sprites[0].append(pygame.image.load('knight_move_right8.png'))
-        self.sprites[1].append(pygame.image.load('knight_move_left1.png'))
-        self.sprites[1].append(pygame.image.load('knight_move_left2.png'))
-        self.sprites[1].append(pygame.image.load('knight_move_left3.png'))
-        self.sprites[1].append(pygame.image.load('knight_move_left4.png'))
-        self.sprites[1].append(pygame.image.load('knight_move_left5.png'))
-        self.sprites[1].append(pygame.image.load('knight_move_left6.png'))
-        self.sprites[1].append(pygame.image.load('knight_move_left7.png'))
-        self.sprites[1].append(pygame.image.load('knight_move_left8.png'))
+        self.sprites[0].append(pygame.image.load(dir_path + 'assets/knight_move_right1.png'))
+        self.sprites[0].append(pygame.image.load(dir_path + 'assets/knight_move_right2.png'))
+        self.sprites[0].append(pygame.image.load(dir_path + 'assets/knight_move_right3.png'))
+        self.sprites[0].append(pygame.image.load(dir_path + 'assets/knight_move_right4.png'))
+        self.sprites[0].append(pygame.image.load(dir_path + 'assets/knight_move_right5.png'))
+        self.sprites[0].append(pygame.image.load(dir_path + 'assets/knight_move_right6.png'))
+        self.sprites[0].append(pygame.image.load(dir_path + 'assets/knight_move_right7.png'))
+        self.sprites[0].append(pygame.image.load(dir_path + 'assets/knight_move_right8.png'))
+        self.sprites[1].append(pygame.image.load(dir_path + 'assets/knight_move_left1.png'))
+        self.sprites[1].append(pygame.image.load(dir_path + 'assets/knight_move_left2.png'))
+        self.sprites[1].append(pygame.image.load(dir_path + 'assets/knight_move_left3.png'))
+        self.sprites[1].append(pygame.image.load(dir_path + 'assets/knight_move_left4.png'))
+        self.sprites[1].append(pygame.image.load(dir_path + 'assets/knight_move_left5.png'))
+        self.sprites[1].append(pygame.image.load(dir_path + 'assets/knight_move_left6.png'))
+        self.sprites[1].append(pygame.image.load(dir_path + 'assets/knight_move_left7.png'))
+        self.sprites[1].append(pygame.image.load(dir_path + 'assets/knight_move_left8.png'))
         
         
         self.current_sprite = 0
